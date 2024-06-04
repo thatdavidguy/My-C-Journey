@@ -7,6 +7,16 @@ class Rectangle{
         int x;
         int y;
     public:
+    //constructors
+        Rectangle(int xe=0,int ye=0){ 
+            setX(xe);
+            setY(ye);
+        }
+        Rectangle(Rectangle &r){
+            x = r.x;
+            y = r.y;
+        }
+        //functions
         void setX(int xe){
             x = xe;
         }
@@ -24,10 +34,11 @@ class Rectangle{
 int main()
 {
     Rectangle r1;
-    r1.setX(10);
-    r1.setY(5);
     cout << r1.area() << endl;
     cout << r1.circumference()<<endl<<endl;
+    Rectangle r3(10,5);
+    cout << r3.area() << endl;
+    cout << r3.circumference()<<endl<<endl;
     Rectangle r2;
     Rectangle *ptr;
     ptr=&r2;
@@ -35,5 +46,8 @@ int main()
     ptr->setY(10);
     cout << ptr->area() << endl;
     cout << ptr->circumference()<<endl<<endl;
+    Rectangle r4(*ptr);
+    cout << r4.area() << endl;
+    cout << r4.circumference()<<endl<<endl;
     return 0;
 }
